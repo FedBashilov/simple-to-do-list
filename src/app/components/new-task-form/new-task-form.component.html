@@ -1,0 +1,19 @@
+<form class="task_form" [formGroup]="taskForm" (ngSubmit)="onSubmit()" >
+  <div class="title">
+    Task
+  </div>
+  <div class="task_form_name">
+    <input type="text" formControlName="name" placeholder = "Name" value="{{taskForEdit.name}}">
+    <div class="error" *ngIf="isControlInvalid('name')">
+      Please enter the task name
+    </div>
+  </div>
+  <div class="task_form_description">
+    <input type="text" formControlName="description" placeholder = "Description" value="{{taskForEdit.description}}">
+    <div class="error" *ngIf="isControlInvalid('description')">
+      Please enter the task description
+    </div>
+  </div>
+  <button class="submit_button" type="submit">Submit</button>
+  <button class="close_button" type="button" name="close_button">x</button>
+</form>

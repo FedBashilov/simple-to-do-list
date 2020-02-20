@@ -1,0 +1,28 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.task_card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid black;
+}
+
+.task_card div{
+  margin-bottom: 10px;
+}
+
+.task_name{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.task_buttons button{
+  margin-right: 5px;
+}
+
+.task_done{
+  color: green;
+}

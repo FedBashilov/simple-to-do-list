@@ -1,0 +1,19 @@
+.task_form{
+  padding: 10px;
+  background-color: white;
+}
+
+.task_form div{
+  margin-bottom: 5px;
+}
+
+.error{
+  color: red;
+  font-size: 0.7em;
+}
+
+.close_button{
+  position: absolute;
+  right: 0;
+  top: 0;
+}

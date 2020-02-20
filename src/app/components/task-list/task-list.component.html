@@ -1,0 +1,26 @@
+<div class="wrapper">
+	<div class="task_card" *ngFor="let task of allTasks$">
+    <div class="task_content">
+      <div class="task_name">
+        {{task.name}}
+      </div>
+      <div class="task_description">
+        {{task.description}}
+      </div>
+      <div class="task_done" *ngIf="task.done">
+        Task done
+      </div>
+    </div>
+		<div class="task_buttons">
+			<div *ngIf="task.done; then taskUndone else taskDone"></div>
+			<ng-template #taskUndone>
+				<button class="done_task_button" type="button" name="button" (click)="changeDone(task.id)">Undone</button>
+			</ng-template>
+			<ng-template #taskDone>
+				<button class="done_task_button" type="button" name="button" (click)="changeDone(task.id)">Done</button>
+			</ng-template>
+      <button class="edit_task_button" type="button" name="button" (click)="edit(task)">Edit</button>
+			<button class="delete_task_button" type="button" name="button" (click)="delete(task.id)">Delete</button>
+		</div>
+	</div>
+</div>

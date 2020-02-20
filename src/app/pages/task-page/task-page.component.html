@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <button class="add_task" type="button" name="button" (click)="addOrEditTask()">Add task</button>
+  <div class="moving_task_form">
+    <app-new-task-form [taskForEdit]="taskForEdit"></app-new-task-form>
+  </div>
+  <app-task-list (childEvent)="addOrEditTask($event)"></app-task-list>
+</div>
