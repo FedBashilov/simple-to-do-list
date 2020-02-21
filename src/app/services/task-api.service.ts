@@ -32,17 +32,11 @@ export class TaskAPIService {
   }
 
   changeTaskDone(id: number){
-    let data = JSON.parse(localStorage.getItem(id.toString()));
-    let item: Task = new Task;
-
-    for (let prop in data) {
-      item[prop] = data[prop];
-    }
-    item.id = id;
-    item.done = !item.done;
+    let task: Task = this.getTask(id);
+    task.done = !task.done;
 
     localStorage.removeItem(id.toString());
-    this.addTask(item);
+    this.addTask(task);
   }
 
   deleteTask(id: number){
@@ -69,5 +63,16 @@ export class TaskAPIService {
 
   loadTasks(){
     this.allTasksStore.next(this.getAllTasks());
+  }
+
+  getTask(id: number){
+    let task: Task = new Task;
+    let data = JSON.parse(localStorage.getItem(id.toString()));
+
+    for (let prop in data) {
+      task[prop] = data[prop];
+    }
+    task.id = id;
+    return task;
   }
 }

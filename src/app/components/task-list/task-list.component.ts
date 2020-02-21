@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import { Task } from '../../models/task.model';
 import { TaskAPIService } from '../../services/task-api.service';
@@ -10,12 +11,10 @@ import { TaskAPIService } from '../../services/task-api.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit{
-  @Output() editTaskEvent = new EventEmitter<Task>();
-
   public allTasks$: Array<Task> = [];
 
 
-  constructor(private taskService: TaskAPIService) {
+  constructor(private taskService: TaskAPIService, private router: Router) {
   }
 
   ngOnInit() {
@@ -26,8 +25,8 @@ export class TaskListComponent implements OnInit{
     this.taskService.changeTaskDone(id);
   }
 
-  edit(targetTask: Task){
-    this.editTaskEvent.emit(targetTask);
+  edit(id: number){
+    this.router.navigate(['/tasks/'+id]);
   }
 
   delete(id: number){

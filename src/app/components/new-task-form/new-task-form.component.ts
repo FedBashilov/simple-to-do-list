@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { Task } from '../../models/task.model';
 import { TaskAPIService } from '../../services/task-api.service';
@@ -9,12 +10,20 @@ import { TaskAPIService } from '../../services/task-api.service';
   styleUrls: ['./new-task-form.component.css']
 })
 export class NewTaskFormComponent implements OnInit {
-  @Input() taskForEdit: Task = new Task;
-  @Output() closeEvent = new EventEmitter();
+  public task: Task;
   public nameIsFilled: boolean = true;
   public descriptionIsFilled: boolean = true;
 
-  constructor(private taskService: TaskAPIService) { }
+  constructor(private taskService: TaskAPIService, private route: ActivatedRoute, private router: Router) {
+    this.route.params.subscribe(
+    params => {
+      if(params['id']){
+        this.task = this.taskService.getTask(params['id']);
+      } else{
+        this.task = new Task;
+      }
+    });
+  }
 
   ngOnInit() {
   }
@@ -29,16 +38,15 @@ export class NewTaskFormComponent implements OnInit {
       let newTask: Task = new Task;
       newTask.name = nameInput;
       newTask.description = descriptionInput;
-      if(this.taskForEdit.id != null){
-        newTask.id = this.taskForEdit.id;
-        newTask.done = this.taskForEdit.done;
+      if(this.task.id != null){
+        newTask.id = this.task.id;
+        newTask.done = this.task.done;
         this.taskService.editTask(newTask);
       } else {
         this.taskService.addTask(newTask);
       }
-      this.closeEvent.emit();
+      this.router.navigate(['/tasks']);
     }
-
   }
 
 }

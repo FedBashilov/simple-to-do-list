@@ -3,17 +3,17 @@
     Task
   </div>
   <div class="task_form_name">
-    <input class="name_input" type="text" placeholder = "Name" value="{{taskForEdit.name}}">
+    <input class="name_input" type="text" placeholder = "Name" value="{{task.name}}">
     <div class="error" *ngIf="!nameIsFilled">
       Please enter the task name
     </div>
   </div>
   <div class="task_form_description">
-    <input class="description_input" type="text" placeholder = "Description" value="{{taskForEdit.description}}">
+    <input class="description_input" type="text" placeholder = "Description" value="{{task.description}}">
     <div class="error" *ngIf="!descriptionIsFilled">
       Please enter the task description
     </div>
   </div>
   <button class="submit_button" type="button" (click)="onSubmit()">Submit</button>
-  <button class="close_button" type="button" name="close_button" (click)="this.closeEvent.emit()">x</button>
+  <button class="close_button" type="button" name="close_button" routerLink="/tasks">x</button>
 </div>

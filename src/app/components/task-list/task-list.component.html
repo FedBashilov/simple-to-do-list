@@ -19,7 +19,7 @@
 			<ng-template #taskDone>
 				<button class="done_task_button" type="button" name="button" (click)="changeDone(task.id)">Done</button>
 			</ng-template>
-      <button class="edit_task_button" type="button" name="button" (click)="edit(task)">Edit</button>
+      <button class="edit_task_button" type="button" name="button" (click)="edit(task.id)">Edit</button>
 			<button class="delete_task_button" type="button" name="button" (click)="delete(task.id)">Delete</button>
 		</div>
 	</div>

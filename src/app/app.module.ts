@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
 import { HeaderComponent } from './components/header/header.component';
-import { NewTaskFormComponent } from './components/new-task-form/new-task-form.component';
+
 
 @NgModule({
   declarations: [
@@ -15,8 +15,7 @@ import { NewTaskFormComponent } from './components/new-task-form/new-task-form.c
     TaskListComponent,
     TaskPageComponent,
     routingComponents,
-    HeaderComponent,
-    NewTaskFormComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

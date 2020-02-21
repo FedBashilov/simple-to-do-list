@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import { TaskAPIService } from '../../services/task-api.service';
 import { Task } from '../../models/task.model';
@@ -11,16 +12,17 @@ import { Task } from '../../models/task.model';
 export class TaskPageComponent implements OnInit {
   taskForEdit: Task = new Task;
 
-  constructor(private taskService: TaskAPIService) { }
+  constructor(private taskService: TaskAPIService,  private router: Router) { }
 
   ngOnInit() {
-    //need to check url
   }
 
   addOrEditTask(targetTask: Task){
-    //need to edit url !
+    this.router.navigate(['tasks/new']);
 
-    let movingTaskForm: any = document.getElementsByClassName("moving_task_form")[0];
+
+
+    /*let movingTaskForm: any = document.getElementsByClassName("moving_task_form")[0];
     let curtain: any = document.getElementsByClassName("curtain")[0];
 
     if( !movingTaskForm.classList.contains("show") ){
@@ -33,7 +35,7 @@ export class TaskPageComponent implements OnInit {
     } else{
       this.taskForEdit = new Task;
     }
-
+*/
   }
 
   hideTaskForm(){

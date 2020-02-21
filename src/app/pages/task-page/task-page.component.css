@@ -1,29 +1,17 @@
 .wrapper{
   position: relative;
 }
-/*moving order form*/
-.moving_task_form{
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 20px;
-  z-index: 200;
-  transform: translateX(100%);
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  background: #FFF;
-  color: black;
-}
-.moving_task_form.show{
-  transform: translateX(0%);
+
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-app-task-list{
-  display: block;
-  padding: 20px;
-  border: 1px solid black;
+.task_form{
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 /*curtain*/
