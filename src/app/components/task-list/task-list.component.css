@@ -7,22 +7,40 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border: 1px solid black;
+  width: 400px;
+  border: 1px solid #6e6d67;
+  background: white;
+  padding: 10px;
+  overflow-wrap:break-word;
 }
 
 .task_card div{
   margin-bottom: 10px;
 }
 
+.first_line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .task_name{
   font-weight: bold;
   font-size: 1.2em;
 }
+.task_done{
+  color: green;
+  font-style: italic;
+}
+
+
+.task_buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
 .task_buttons button{
   margin-right: 5px;
-}
-
-.task_done{
-  color: green;
+  cursor: pointer;
 }

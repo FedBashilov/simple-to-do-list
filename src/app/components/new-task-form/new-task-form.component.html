@@ -3,13 +3,14 @@
     Task
   </div>
   <div class="task_form_name">
-    <input class="name_input" type="text" placeholder = "Name" value="{{task.name}}">
+    <input class="name_input" type="text" placeholder = "Name" value="{{task.name}}" required>
     <div class="error" *ngIf="!nameIsFilled">
       Please enter the task name
     </div>
   </div>
   <div class="task_form_description">
-    <input class="description_input" type="text" placeholder = "Description" value="{{task.description}}">
+    <textarea class="description_input" rows="4" cols="30" wrap="hard" placeholder = "Description" value="{{task.description}}" required>
+    </textarea>
     <div class="error" *ngIf="!descriptionIsFilled">
       Please enter the task description
     </div>

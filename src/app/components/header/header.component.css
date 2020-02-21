@@ -3,6 +3,11 @@
   background-color: #3d3938;
   box-shadow: 0 0 5px #3d3938;
   height: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .site_name{

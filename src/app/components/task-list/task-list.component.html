@@ -1,15 +1,17 @@
 <div class="wrapper">
 	<div class="task_card" *ngFor="let task of allTasks$">
     <div class="task_content">
-      <div class="task_name">
-        {{task.name}}
-      </div>
-      <div class="task_description">
-        {{task.description}}
-      </div>
-      <div class="task_done" *ngIf="task.done">
-        Task done
-      </div>
+			<div class="first_line">
+				<div class="task_name">
+					{{task.name}}
+				</div>
+				<div class="task_done" *ngIf="task.done">
+					<img src="assets/mark.png" alt="">
+				</div>
+			</div>
+      <pre class="task_description">{{task.description}}
+      </pre>
+
     </div>
 		<div class="task_buttons">
 			<div *ngIf="task.done; then taskUndone else taskDone"></div>
