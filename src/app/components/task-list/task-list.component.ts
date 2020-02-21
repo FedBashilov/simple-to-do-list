@@ -10,7 +10,7 @@ import { TaskAPIService } from '../../services/task-api.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit{
-  @Output() childEvent = new EventEmitter<Task>();
+  @Output() editTaskEvent = new EventEmitter<Task>();
 
   public allTasks$: Array<Task> = [];
 
@@ -27,8 +27,7 @@ export class TaskListComponent implements OnInit{
   }
 
   edit(targetTask: Task){
-    console.log(targetTask);
-    this.childEvent.emit(targetTask);
+    this.editTaskEvent.emit(targetTask);
   }
 
   delete(id: number){

@@ -21,9 +21,11 @@ export class TaskPageComponent implements OnInit {
     //need to edit url !
 
     let movingTaskForm: any = document.getElementsByClassName("moving_task_form")[0];
+    let curtain: any = document.getElementsByClassName("curtain")[0];
 
     if( !movingTaskForm.classList.contains("show") ){
       movingTaskForm.classList.add("show");
+      curtain.classList.add("show");
     }
     console.log(targetTask);
     if(targetTask){
@@ -32,6 +34,14 @@ export class TaskPageComponent implements OnInit {
       this.taskForEdit = new Task;
     }
 
+  }
+
+  hideTaskForm(){
+    let movingTaskForm: any = document.getElementsByClassName("moving_task_form")[0];
+    let curtain: any = document.getElementsByClassName("curtain")[0];
+
+    curtain.classList.remove("show");
+    movingTaskForm.classList.remove("show");
   }
 
 }
